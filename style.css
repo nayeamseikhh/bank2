@@ -1,0 +1,73 @@
+body{
+    padding: 100px;
+    background-color: rgb(20, 75, 96);
+}
+#text-gradient{
+    background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+    color: transparent;
+    background-clip: text;
+}
+.text-gradient{
+    color: rgb(182, 250, 151);
+    text-shadow: 1px 1px 2px black, 0 0 300px blue, 0 0 10px darkblue;
+}
+
+#login{
+    color: rgb(182, 250, 151);
+    text-shadow: 1px 1px 2px black, 0 0 300px blue, 0 0 10px darkblue;
+}
+
+         
+.btn-grad {
+    background-image: linear-gradient(to right, #348F50 0%, #56B4D3  51%, #348F50  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    border: none;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+     
+
+.submit-area{
+    margin-top: 70px;
+    padding:40px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(119, 149, 76);
+    background-color: rgb(238, 250, 255);
+    border-radius: 20px;
+}
+#transection-area{
+    display: none;
+}
+.deposit{
+    background: linear-gradient(45deg, rgb(251, 0, 147), rgb(54, 54, 240));
+   
+}
+.withdrow{
+    background: linear-gradient(45deg, rgb(161, 234, 15), blue);
+    
+}
+.balance{
+    background: linear-gradient(45deg, rgb(249, 8, 8), blue);
+    
+}
+.status{
+    margin: 0 20px;
+    color: rgb(225, 255, 245);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+}
