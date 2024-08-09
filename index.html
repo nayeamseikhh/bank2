@@ -33,13 +33,13 @@
             <div class="col-md-4">
                 <div class="withdrow status">
                     <h5><b>Withdrow</b></h5>
-                    <h3>$ <span id=""><b>00</b></span></h3>
+                    <h3>$ <span id="currentWithdrow"><b>00</b></span></h3>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="balance status">
                     <h5><b>Balance</b></h5>
-                    <h3>$ <span id="totalBalance"><b>4500</b></span></h3>
+                    <h3>$ <span id="balanceAmount"><b>4500</b></span></h3>
                 </div>
             </div>
         </div>
@@ -57,9 +57,9 @@
                 <div class="submit-area">
                     <h4 class="text-gradient">Withdrow</h4>
                     <br>
-                    <input type="text" class="form-control" placeholder="$ wnter Your Withdrow Amount Here">
+                    <input id="withdrowAmount" type="text" class="form-control" placeholder="$ wnter Your Withdrow Amount Here">
                     <br>
-                    <button class="btn-grad">Withdrow</button>
+                    <button id="addWithdrow" class="btn-grad">Withdrow</button>
                 </div>
             </div>
         </div>
@@ -73,18 +73,82 @@
         const transectionArea = document.getElementById("transection-area").style.display = "block";
         })
     
+        // deposit Button even handler
         const depositBtn = document.getElementById("depositBtn").addEventListener("click", function(){
-            const depositAmount = document.getElementById("depositAmount").value;
-            const depositNumber = parseFloat(depositAmount);
+            const depositNumber = getInputNumber("depositAmount");
 
-            const currentDeposit = document.getElementById("currentDeposit").innerText;
-            const currentDepositNumber = parseFloat(currentDeposit);
-            const totalDeposit = depositNumber + currentDepositNumber;
-            document.getElementById("currentDeposit").innerText = totalDeposit;
+            updateSpanText("currentDeposit", depositNumber);
+            updateSpanText("balanceAmount", depositNumber);
+
 
             document.getElementById("depositAmount").value = "";
 
         })
+        //withdrow button even handler
+        const withdrowBtn = document.getElementById("addWithdrow").addEventListener("click", function(){
+            const withdrowNumber = getInputNumber("withdrowAmount");
+            
+            updateSpanText("currentWithdrow", withdrowNumber);
+            updateSpanText("balanceAmount",  -1 * withdrowNumber);
+
+            document.getElementById("withdrowAmount").value = "";
+        })
+        function getInputNumber(id){
+            const amount = document.getElementById(id).value;
+            const amountNumber = parseFloat(amount);
+            return amountNumber;
+        }
+        function updateSpanText(id, depositNumber){
+            const currentDeposit = document.getElementById(id).innerText;
+            const currentDepositNumber = parseFloat(currentDeposit);
+            const totalDeposit = depositNumber + currentDepositNumber;
+            document.getElementById(id).innerText = totalDeposit;
+        }
+
+
+
+
+
+
+        // // login button even handler
+        // const submitBtn = document.getElementById("submit-btn").addEventListener("click", function(){
+        // const submitArea = document.getElementById("login-area").style.display = "none";
+        // const transectionArea = document.getElementById("transection-area").style.display = "block";
+        // })
+    
+        // // deposit Button even handler
+        // const depositBtn = document.getElementById("depositBtn").addEventListener("click", function(){
+        //     const depositAmount = document.getElementById("depositAmount").value;
+        //     const depositNumber = parseFloat(depositAmount);
+
+        //     const currentDeposit = document.getElementById("currentDeposit").innerText;
+        //     const currentDepositNumber = parseFloat(currentDeposit);
+        //     const totalDeposit = depositNumber + currentDepositNumber;
+        //     document.getElementById("currentDeposit").innerText = totalDeposit;
+
+        //     const currentBalance = document.getElementById("balanceAmount").innerText;
+        //     const currentBalanceNumber = parseFloat(currentBalance);
+        //     const totalBalance = depositNumber + currentBalanceNumber;
+        //     document.getElementById("balanceAmount").innerText  = totalBalance;
+
+        //     document.getElementById("depositAmount").value = "";
+
+        // })
+        // //withdrow button even handler
+        // const withdrowBtn = document.getElementById("addWithdrow").addEventListener("click", function(){
+        //     const withdrowAmount = document.getElementById("withdrowAmount").value;
+        //     const withdrowNumber = parseFloat(withdrowAmount);
+            
+
+        //     const currentWithdrow =  document.getElementById("currentWithdrow").innerText;
+        //     const currentWithdrowNumber = parseFloat(currentWithdrow);
+        //     const totalwithdrow = withdrowAmount  + currentWithdrowNumber;
+        //     document.getElementById("currentWithdrow").innerText = totalwithdrow;
+            
+        //     document.getElementById("withdrowAmount").value = "";
+        // })
+
+        
 
         
 
